@@ -2,19 +2,13 @@ import discord
 from discord.ext import commands
 import random
 
-
-
 class welcomes(commands.Cog):
     
     def __init__(self, bot):
-
         self.bot = bot
 
-        
     @commands.Cog.listener()
     async def on_member_join(self, member):
-
-        
         
         welcome_messages = [
             "Welcome. Welcome to TF2 Trade Central, {}",
@@ -46,21 +40,10 @@ class welcomes(commands.Cog):
             "Selling {}, 20 keys",
             "{}? That's a pretty name."
         ]
-        
-    
-        
+
         welcome_channel = member.guild.system_channel
-
         welcome_message = random.choice(welcome_messages)
-
-
-
-        
         await welcome_channel.send(welcome_message.format(member.mention)) #inserts the user mention into the {} of the strings
-
-
-
-
 
 
 def setup(bot):
