@@ -34,6 +34,10 @@ class unupc(commands.Cog):
     async def refreshprices_loop(self):
         self.refreshprices_func()
 
+    @refreshprices_loop.before_loop
+    async def before_refreshprices(self):
+        await self.bot.wait_until_ready()
+
 
     @commands.command()
     async def refreshprices(self, ctx):
