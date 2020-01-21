@@ -11,10 +11,9 @@ class pinghelp(commands.Cog):
         self.required_phrases = ['backpack.tf/stats', 'backpack.tf/item']
 
         if message.author.id != 603734708450361364 and message.channel.id == 332750180283711488 and '@&440193726669651968' in message.content: #makes sure the listener isn't triggered by its own messages & only in the trading advice channel
-            for phrase in self.required_phrases:
-                if phrase not in message.content.lower():
-                    await message.channel.send(self.main_message)
-                    return
+            if all(phrase not in message.content.lower() for phrase in self.required_phrases):
+                await message.channel.send(self.main_message)
+                return
 
 def setup(bot):
     bot.add_cog(pinghelp(bot))
