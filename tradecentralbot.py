@@ -1,5 +1,6 @@
 import discord
 from discord.ext import tasks, commands #these are all for discord stuff
+import datetime
 
 import requests #for communicating with APIs (primarily backpack.tf's)
 import json #used for formatting json, usually returned from APIs
@@ -21,8 +22,7 @@ bot.load_extension('commands.cogs.pinghelp.pinghelp') #sends a message if the tr
 
 @bot.event
 async def on_ready():
-    print('Bot running.')
-
+    print(f'Bot started running at {datetime.datetime.now()} \n{discord.__version__}')
 
 
 #HANDY FUNCTIONS 'N SHIT
